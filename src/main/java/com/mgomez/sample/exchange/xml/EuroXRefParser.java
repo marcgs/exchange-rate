@@ -1,11 +1,13 @@
 package com.mgomez.sample.exchange.xml;
 
 import com.mgomez.sample.exchange.model.Envelope;
+import org.springframework.stereotype.Component;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 import java.io.StringReader;
 
+@Component
 public class EuroXRefParser {
 
     public Envelope parseXml(String xml) {
