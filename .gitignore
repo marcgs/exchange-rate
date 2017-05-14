@@ -1,0 +1,37 @@
+#################
+## JAVA
+#################
+
+target/
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+#################
+## IntelliJ
+#################
+
+.idea
+
+###############
+## Various
+###############
+
+# Mac crap
+.DS_Store
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Python byte-code
+*.pyc
+
+# npm crap
+npm-debug.log
