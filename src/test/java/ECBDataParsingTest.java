@@ -1,5 +1,5 @@
-import com.mgomez.sample.exchange.model.Cube;
 import com.mgomez.sample.exchange.model.Envelope;
+import com.mgomez.sample.exchange.model.Period;
 import org.junit.Test;
 
 import javax.xml.bind.JAXBContext;
@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ECBDataParsingTest {
 
     @Test
-    public void should_parse_ECB_xml_into_json() throws Exception {
+    public void should_parse_ECB_xml_correctly() throws Exception {
         URI fileUri = getSystemResource("eurofxref-hist-90d.xml").toURI();
         String content = new String(Files.readAllBytes(Paths.get(fileUri)));
 
@@ -27,9 +27,9 @@ public class ECBDataParsingTest {
         Envelope envelope = (Envelope) unmarshaller.unmarshal(reader);
 
         assertThat(envelope).isNotNull();
-        List<Cube> cubes = envelope.getCube().getCubes();
-        assertThat(cubes).hasSize(62);
-        cubes.forEach(cube -> assertThat(cube.getCubes()).describedAs("Cube with time" + cube.getTime()).hasSize(31));
+        List<Period> periods = envelope.getCube().getPeriods();
+        assertThat(periods).hasSize(62);
+        periods.forEach(period -> assertThat(period.getExchangeRates()).describedAs("Period " + period.getTime()).hasSize(31));
     }
 
 }

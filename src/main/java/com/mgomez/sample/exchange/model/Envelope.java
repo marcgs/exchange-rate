@@ -13,7 +13,7 @@ public class Envelope {
     private Sender sender;
 
     @XmlElement(name = "Cube")
-    private Cube cube;
+    private Container cube;
 
 
     public Sender getSender() {
@@ -24,7 +24,7 @@ public class Envelope {
         return subject;
     }
 
-    public Cube getCube() {
+    public Container getCube() {
         return cube;
     }
 }
