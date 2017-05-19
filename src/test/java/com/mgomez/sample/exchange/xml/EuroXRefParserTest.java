@@ -6,14 +6,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 
-import static java.lang.ClassLoader.getSystemResource;
+import static com.mgomez.sample.exchange.util.FileStringReader.readFile;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class EuroXRefParserTest {
@@ -26,7 +21,7 @@ public class EuroXRefParserTest {
     @Test
     public void should_parse_ECB_xml_correctly() throws Exception {
         // given
-        String content = getXmlData("eurofxref-hist-90d.xml");
+        String content = readFile("eurofxref-hist-90d.xml");
 
         // when
         Envelope envelope = parser.parseXml(content);
@@ -41,7 +36,7 @@ public class EuroXRefParserTest {
     @Test
     public void should_throw_exception_if_incorrect_xml() throws Exception {
         // given
-        String content = getXmlData("eurofxref-hist-90d-kaputt.xml");
+        String content = readFile("eurofxref-hist-90d-kaputt.xml");
         thrown.expect(RuntimeException.class);
         thrown.expectMessage("Could not parse EuroXRef xml file");
 
@@ -52,8 +47,4 @@ public class EuroXRefParserTest {
         // exception expected
     }
 
-    private String getXmlData(String filename) throws URISyntaxException, IOException {
-        URI fileUri = getSystemResource(filename).toURI();
-        return new String(Files.readAllBytes(Paths.get(fileUri)));
-    }
 }

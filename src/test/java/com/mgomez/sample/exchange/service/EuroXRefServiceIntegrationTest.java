@@ -4,13 +4,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static io.restassured.RestAssured.given;
-import static java.time.LocalDate.now;
-import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE;
 import static org.hamcrest.core.IsEqual.equalTo;
 
+@ActiveProfiles("test")
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class EuroXRefServiceIntegrationTest {
@@ -29,7 +29,7 @@ public class EuroXRefServiceIntegrationTest {
                 .statusCode(200)
                 .body("subject", equalTo("Reference rates"))
                 .body("sender.name", equalTo("European Central Bank"))
-                .body("cube.periods.find { it.time == '" + now().format(ISO_LOCAL_DATE) + "' }.exchangeRates.size()", equalTo(31));
+                .body("cube.periods.find { it.time == '2017-05-12' }.exchangeRates.size()", equalTo(31));
     }
 
 }
