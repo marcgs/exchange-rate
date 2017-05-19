@@ -11,9 +11,9 @@ import java.util.List;
 import static com.mgomez.exchange.util.FileStringReader.readFile;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class EuroXRefParserTest {
+public class EuroXRefXmlParserTest {
 
-    private EuroXRefParser parser = new EuroXRefParser();
+    private EuroXRefXmlParser parser = new EuroXRefXmlParser();
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();

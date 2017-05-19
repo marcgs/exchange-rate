@@ -2,7 +2,7 @@ package com.mgomez.exchange.integrationtest;
 
 import com.mgomez.exchange.xml.EuroXRefXmlProvider;
 import com.mgomez.exchange.model.Envelope;
-import com.mgomez.exchange.xml.EuroXRefParser;
+import com.mgomez.exchange.xml.EuroXRefXmlParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class EuroXRefService {
 
     @Autowired
-    private EuroXRefParser parser;
+    private EuroXRefXmlParser parser;
     @Autowired
     private EuroXRefXmlProvider xmlProvider;
 

@@ -8,7 +8,7 @@ import javax.xml.bind.Unmarshaller;
 import java.io.StringReader;
 
 @Component
-public class EuroXRefParser {
+public class EuroXRefXmlParser {
 
     public Envelope parseXml(String xml) {
         try {
