@@ -29,7 +29,10 @@ public class EuroXRefServiceIntegrationTest {
                 .statusCode(200)
                 .body("subject", equalTo("Reference rates"))
                 .body("sender.name", equalTo("European Central Bank"))
-                .body("cube.periods.find { it.time == '2017-05-12' }.exchangeRates.size()", equalTo(31));
+                .body("cube.periods.size()", equalTo(62))
+                .body("cube.periods.find { it.time == '2017-05-12' }.exchangeRates.size()", equalTo(31))
+                .body("cube.periods.find { it.time == '2017-05-12' }.exchangeRates[0].rate", equalTo("1.0876"))
+                .body("cube.periods.find { it.time == '2017-05-12' }.exchangeRates[0].currency", equalTo("USD"));
     }
 
 }
