@@ -1,14 +1,14 @@
-package com.mgomez.sample.exchange.xml;
+package com.mgomez.exchange.xml;
 
-import com.mgomez.sample.exchange.model.Envelope;
-import com.mgomez.sample.exchange.model.Period;
+import com.mgomez.exchange.model.Envelope;
+import com.mgomez.exchange.model.Period;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.util.List;
 
-import static com.mgomez.sample.exchange.util.FileStringReader.readFile;
+import static com.mgomez.exchange.util.FileStringReader.readFile;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class EuroXRefParserTest {

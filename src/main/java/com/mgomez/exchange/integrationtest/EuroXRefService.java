@@ -1,8 +1,8 @@
-package com.mgomez.sample.exchange.service;
+package com.mgomez.exchange.integrationtest;
 
-import com.mgomez.sample.exchange.model.Envelope;
-import com.mgomez.sample.exchange.xml.EuroXRefParser;
-import com.mgomez.sample.exchange.xml.EuroXRefXmlProvider;
+import com.mgomez.exchange.xml.EuroXRefXmlProvider;
+import com.mgomez.exchange.model.Envelope;
+import com.mgomez.exchange.xml.EuroXRefParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;

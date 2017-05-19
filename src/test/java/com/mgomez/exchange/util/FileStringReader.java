@@ -1,4 +1,4 @@
-package com.mgomez.sample.exchange.util;
+package com.mgomez.exchange.util;
 
 import java.net.URI;
 import java.nio.file.Files;

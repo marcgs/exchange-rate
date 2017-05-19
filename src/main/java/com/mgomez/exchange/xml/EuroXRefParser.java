@@ -1,6 +1,6 @@
-package com.mgomez.sample.exchange.xml;
+package com.mgomez.exchange.xml;
 
-import com.mgomez.sample.exchange.model.Envelope;
+import com.mgomez.exchange.model.Envelope;
 import org.springframework.stereotype.Component;
 
 import javax.xml.bind.JAXBContext;

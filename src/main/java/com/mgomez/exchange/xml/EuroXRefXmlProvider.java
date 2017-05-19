@@ -1,4 +1,4 @@
-package com.mgomez.sample.exchange.xml;
+package com.mgomez.exchange.xml;
 
 import org.springframework.stereotype.Component;
 

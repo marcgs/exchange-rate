@@ -1,13 +1,13 @@
-package com.mgomez.sample.exchange.service;
+package com.mgomez.exchange.integrationtest;
 
-import com.mgomez.sample.exchange.xml.EuroXRefXmlProvider;
+import com.mgomez.exchange.xml.EuroXRefXmlProvider;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
-import static com.mgomez.sample.exchange.util.FileStringReader.readFile;
+import static com.mgomez.exchange.util.FileStringReader.readFile;
 
 @Profile("test")
 @Configuration

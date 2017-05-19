@@ -1,4 +1,4 @@
-package com.mgomez.sample.exchange;
+package com.mgomez.exchange;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.mgomez.sample.exchange.service;
+package com.mgomez.exchange.integrationtest;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

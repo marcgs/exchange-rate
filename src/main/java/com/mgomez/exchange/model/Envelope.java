@@ -1,4 +1,4 @@
-package com.mgomez.sample.exchange.model;
+package com.mgomez.exchange.model;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
