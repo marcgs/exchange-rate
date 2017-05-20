@@ -1,6 +1,6 @@
 package com.mgomez.exchange.xml;
 
-import com.mgomez.exchange.model.Envelope;
+import com.mgomez.exchange.model.EuroXRef;
 import com.mgomez.exchange.model.Period;
 import org.junit.Rule;
 import org.junit.Test;
@@ -24,11 +24,11 @@ public class EuroXRefXmlParserTest {
         String content = readFile("eurofxref-hist-90d.xml");
 
         // when
-        Envelope envelope = parser.parseXml(content);
+        EuroXRef euroXRef = parser.parseXml(content);
 
         // then
-        assertThat(envelope).isNotNull();
-        List<Period> periods = envelope.getCube().getPeriods();
+        assertThat(euroXRef).isNotNull();
+        List<Period> periods = euroXRef.getRatesPerPeriod().getPeriods();
         assertThat(periods).hasSize(62);
         periods.forEach(period -> assertThat(period.getExchangeRates()).describedAs("Period " + period.getTime()).hasSize(31));
     }
@@ -41,7 +41,7 @@ public class EuroXRefXmlParserTest {
         thrown.expectMessage("Could not parse EuroXRef xml file");
 
         // when
-        Envelope envelope = parser.parseXml(content);
+        EuroXRef euroXRef = parser.parseXml(content);
 
         // then
         // exception expected

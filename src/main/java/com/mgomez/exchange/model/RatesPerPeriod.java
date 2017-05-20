@@ -3,7 +3,7 @@ package com.mgomez.exchange.model;
 import javax.xml.bind.annotation.XmlElement;
 import java.util.List;
 
-public class Container {
+public class RatesPerPeriod {
 
     @XmlElement(name="Cube")
     private List<Period> periods;

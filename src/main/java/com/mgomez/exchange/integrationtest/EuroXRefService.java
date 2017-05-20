@@ -1,7 +1,7 @@
 package com.mgomez.exchange.integrationtest;
 
+import com.mgomez.exchange.model.EuroXRef;
 import com.mgomez.exchange.xml.EuroXRefXmlProvider;
-import com.mgomez.exchange.model.Envelope;
 import com.mgomez.exchange.xml.EuroXRefXmlParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -15,16 +15,16 @@ public class EuroXRefService {
     @Autowired
     private EuroXRefXmlProvider xmlProvider;
 
-    private Envelope envelope;
+    private EuroXRef euroXRef;
 
-    public Envelope getEnvelope() {
-        return envelope;
+    public EuroXRef getEuroXRef() {
+        return euroXRef;
     }
 
     @Scheduled(fixedDelay = 60000)
     public void updateData() throws Exception {
         String xmlData = xmlProvider.getXml();
-        this.envelope = parser.parseXml(xmlData);
+        this.euroXRef = parser.parseXml(xmlData);
     }
 
 }

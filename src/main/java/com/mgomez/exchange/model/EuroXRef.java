@@ -1,19 +1,19 @@
 package com.mgomez.exchange.model;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
+
 
 @XmlRootElement(name = "Envelope", namespace ="http://www.gesmes.org/xml/2002-08-01")
-public class Envelope {
+public class EuroXRef {
 
-    @XmlElement
+    @XmlElement(namespace = "http://www.gesmes.org/xml/2002-08-01")
     private String subject;
 
-    @XmlElement(name = "Sender")
+    @XmlElement(name = "Sender", namespace = "http://www.gesmes.org/xml/2002-08-01")
     private Sender sender;
 
     @XmlElement(name = "Cube")
-    private Container cube;
+    private RatesPerPeriod ratesPerPeriod;
 
 
     public Sender getSender() {
@@ -24,7 +24,7 @@ public class Envelope {
         return subject;
     }
 
-    public Container getCube() {
-        return cube;
+    public RatesPerPeriod getRatesPerPeriod() {
+        return ratesPerPeriod;
     }
 }
