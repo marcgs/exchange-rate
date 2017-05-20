@@ -1,5 +1,7 @@
 package com.mgomez.exchange.model;
 
+import com.google.common.base.MoreObjects;
+
 import javax.xml.bind.annotation.XmlAttribute;
 import java.util.Objects;
 
@@ -33,11 +35,19 @@ public class ExchangeRate {
         if (o == null || getClass() != o.getClass()) return false;
 
         ExchangeRate that = (ExchangeRate) o;
-        return Objects.equals(currency, that.currency);
+        return Objects.equals(currency, that.currency) && Objects.equals(rate, that.rate);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(currency, rate);
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("currency", currency)
+                .add("rate", rate)
+                .toString();
     }
 }

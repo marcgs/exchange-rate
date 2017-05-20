@@ -7,6 +7,14 @@ public class Sender {
     @XmlElement(namespace = "http://www.gesmes.org/xml/2002-08-01")
     private String name;
 
+
+    public Sender() {
+    }
+
+    public Sender(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }

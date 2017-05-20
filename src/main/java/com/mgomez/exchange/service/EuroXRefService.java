@@ -1,5 +1,6 @@
 package com.mgomez.exchange.service;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableList;
 import com.mgomez.exchange.date.DateFactory;
 import com.mgomez.exchange.model.EuroXRef;
@@ -30,10 +31,9 @@ public class EuroXRefService {
     public EuroXRefService() {
     }
 
-    //@VisibleForTesting
-    EuroXRefService(EuroXRefXmlParser xmlParser, EuroXRefXmlProvider xmlProvider, DateFactory dateFactory) {
-        this.xmlParser = xmlParser;
-        this.xmlProvider = xmlProvider;
+    @VisibleForTesting
+    EuroXRefService(EuroXRef euroXRef, DateFactory dateFactory) {
+        this.euroXRef = euroXRef;
         this.dateFactory = dateFactory;
     }
 
