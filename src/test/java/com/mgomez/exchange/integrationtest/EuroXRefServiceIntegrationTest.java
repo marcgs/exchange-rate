@@ -35,4 +35,54 @@ public class EuroXRefServiceIntegrationTest {
                 .body("ratesPerPeriod.periods.find { it.time == '2017-05-12' }.exchangeRates[0].currency", equalTo("USD"));
     }
 
+    @Test
+    public void should_retrieve_exchange_rates_for_today() {
+        given()
+                .basePath("/api/euroxref/0")
+                .port(port)
+                .when()
+                .get()
+                .then()
+                .statusCode(200)
+                .body("subject", equalTo("Reference rates"))
+                .body("sender.name", equalTo("European Central Bank"))
+                .body("ratesPerPeriod.periods.size()", equalTo(1))
+                .body("ratesPerPeriod.periods[0].exchangeRates.size()", equalTo(31))
+                .body("ratesPerPeriod.periods[0].exchangeRates[0].rate", equalTo("1.0876"))
+                .body("ratesPerPeriod.periods[0].exchangeRates[0].currency", equalTo("USD"));
+    }
+
+    @Test
+    public void should_retrieve_exchange_rates_for_yesterday() {
+        given()
+                .basePath("/api/euroxref/1")
+                .port(port)
+                .when()
+                .get()
+                .then()
+                .statusCode(200)
+                .body("subject", equalTo("Reference rates"))
+                .body("sender.name", equalTo("European Central Bank"))
+                .body("ratesPerPeriod.periods.size()", equalTo(1))
+                .body("ratesPerPeriod.periods[0].exchangeRates.size()", equalTo(31))
+                .body("ratesPerPeriod.periods[0].exchangeRates[0].rate", equalTo("1.086"))
+                .body("ratesPerPeriod.periods[0].exchangeRates[0].currency", equalTo("USD"));
+    }
+
+    @Test
+    public void should_retrieve_exchange_rates_for_60_days_ago() {
+        given()
+                .basePath("/api/euroxref/60")
+                .port(port)
+                .when()
+                .get()
+                .then()
+                .statusCode(200)
+                .body("subject", equalTo("Reference rates"))
+                .body("sender.name", equalTo("European Central Bank"))
+                .body("ratesPerPeriod.periods.size()", equalTo(1))
+                .body("ratesPerPeriod.periods[0].exchangeRates.size()", equalTo(31))
+                .body("ratesPerPeriod.periods[0].exchangeRates[0].rate", equalTo("1.0663"))
+                .body("ratesPerPeriod.periods[0].exchangeRates[0].currency", equalTo("USD"));
+    }
 }

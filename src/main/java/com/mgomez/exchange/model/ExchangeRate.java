@@ -1,8 +1,7 @@
 package com.mgomez.exchange.model;
 
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import java.util.List;
+import java.util.Objects;
 
 public class ExchangeRate {
 
@@ -12,6 +11,14 @@ public class ExchangeRate {
     @XmlAttribute
     private String rate;
 
+    public ExchangeRate() {
+    }
+
+    public ExchangeRate(String currency, String rate) {
+        this.currency = currency;
+        this.rate = rate;
+    }
+
     public String getCurrency() {
         return currency;
     }
@@ -20,4 +27,17 @@ public class ExchangeRate {
         return rate;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ExchangeRate that = (ExchangeRate) o;
+        return Objects.equals(currency, that.currency);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(currency, rate);
+    }
 }

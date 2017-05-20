@@ -15,6 +15,14 @@ public class EuroXRef {
     @XmlElement(name = "Cube")
     private RatesPerPeriod ratesPerPeriod;
 
+    public EuroXRef() {
+    }
+
+    public EuroXRef(String subject, Sender sender, RatesPerPeriod ratesPerPeriod) {
+        this.subject = subject;
+        this.sender = sender;
+        this.ratesPerPeriod = ratesPerPeriod;
+    }
 
     public Sender getSender() {
         return sender;
